@@ -12,7 +12,7 @@ def handleVideoComments(videoId):
   
   while True:
       
-    commentsList, pageToken = getComments(videoId, pageToken) #создаем переменную коментлист, сложим в нее комментарии после выолнения функции геткоментс, в пейдж токен получим токен если он будет
+    commentsList, pageToken = getComments(videoId, pageToken) #создаем переменную коментлист, сложим в нее комментарии после выполнения функции геткоментс, в пейдж токен получим токен если он будет
     
     if not commentsList: #если не будет коментов прерываем цикл, выдаем сообщение пользователю строка 28
       break

@@ -18,7 +18,7 @@ def preparePredictions(allPredictions):
 
 
 def getPlotImageFromPredictions(predictions):
-  df = pd.DataFrame(preparePredictions(predictions)) #создаем дата фрейм из обоботанных даныых в функции
+  df = pd.DataFrame(preparePredictions(predictions)) #создаем дата фрейм из обработанных даныых в функции
   buffer = io.BytesIO()
   figure = df.count().plot.bar(color=[COLORS[column] for column in df.columns.values], edgecolor='black',fontsize=14, title='Количество оценок').get_figure() #строимграфик 
   figure.tight_layout()  # Добавляем layout, чтобы не обрезалась картинка.

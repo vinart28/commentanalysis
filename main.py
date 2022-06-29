@@ -1,8 +1,7 @@
 import telebot
 from pytube import extract  # для получения id видео из ссылки
 import sqlite3
-#from dostoevsky.tokenization import RegexTokenizer
-#from dostoevsky.models import FastTextSocialNetworkModel
+
 
 from handleVideoComments import handleVideoComments
 
@@ -12,7 +11,7 @@ bot = telebot.TeleBot("5298919963:AAGMVwkHc2kIwqhQRWs8k5gO1dUopZkoS74")
 
 dbConnection = sqlite3.connect('history.db', check_same_thread=False)
 dbCursor = dbConnection.cursor()
-dbCursor.execute('''CREATE TABLE IF NOT EXISTS urls_history (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, user_id, url TEXT)''')  # можно еще колонку с датой date TEXT
+dbCursor.execute('''CREATE TABLE IF NOT EXISTS urls_history (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, user_id, url TEXT)''')  
 dbConnection.commit()
 
 @bot.message_handler(commands=['start', 'help'])
@@ -49,7 +48,7 @@ def catch_message(message):
   if not urls:
     bot.send_message(message.chat.id, 'Что-то пошло не так. Попробуй, пожалуйста, другую ссылку.')
     return
-# если массив возможных ссылок пустой, то вдаем сообщени об ошибке 
+# если массив возможных ссылок пустой, то выдаем сообщени об ошибке 
   
     # если массив не пустой, то переходим в цикл 
   

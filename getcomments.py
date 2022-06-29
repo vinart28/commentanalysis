@@ -30,7 +30,7 @@ def getComments(videoId, pageToken):
       for reply in replies:
         commentsList.append(f"{reply['snippet']['textOriginal']}")
 
-  if 'nextPageToken' in response: #проверяем если есть токен следубщей страницы,позвращаем заполненный на предудущем шаге массив и пейдж токен. 
+  if 'nextPageToken' in response: #проверяем если есть токен следующей странице,позвращаем заполненный на предудущем шаге массив и пейдж токен. 
     return commentsList, response['nextPageToken']
 
-  return commentsList, None #если пейдж токена нет, возрвращаем полученный заполненный массив на предыдущим шаге и нан вместо токена 
+  return commentsList, None #если пейдж токена нет, возвращаем полученный заполненный массив на предыдущим шаге и нан вместо токена 
